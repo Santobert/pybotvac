@@ -4,7 +4,7 @@ import os.path
 import re
 import urllib3
 import requests
-from datetime import datetime
+from datetime import datetime, timezone
 from babel.dates import format_datetime
 
 from .neato import Neato    # For default Vendor argument
@@ -245,7 +245,7 @@ class Auth(requests.auth.AuthBase):
         # We have to format the date according to RFC 2616
         # https://tools.ietf.org/html/rfc2616#section-14.18
 
-        now = datetime.utcnow()
+        now = datetime.now(timezone.utc)
         format = 'EEE, dd LLL yyyy hh:mm:ss'
         date = format_datetime(now, format, locale='en') + ' GMT'
 
