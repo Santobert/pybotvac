@@ -246,7 +246,7 @@ class Auth(requests.auth.AuthBase):
         # https://tools.ietf.org/html/rfc2616#section-14.18
 
         now = datetime.now(timezone.utc)
-        format = 'EEE, dd LLL yyyy hh:mm:ss'
+        format = 'EEE, dd LLL yyyy HH:mm:ss'
         date = format_datetime(now, format, locale='en') + ' GMT'
 
         try:
